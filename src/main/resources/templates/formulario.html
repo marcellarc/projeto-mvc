@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title th:text="${titulo}">Cadastro</title>
+    <link rel="stylesheet" href="/styles/index.css">
+</head>
+<body>
+    <h1 th:text="${titulo}"></h1>
+    <form th:action="@{${link}}" method="POST" th:object="${filme}">
+        Título: <input type="text" th:field="*{titulo}" required><br>
+        Diretor: <input type="text" th:field="*{diretor}" required><br>
+        Ano de Lançamento: <input type="number" th:field="*{anoLancamento}" required><br>
+        Gênero: <input type="text" th:field="*{genero}" required><br>
+        Duração (min): <input type="number" th:field="*{duracao}" required><br>
+        Status: <input type="text" th:field="*{status}" required><br>
+        Caminho da Imagem: <input type="text" th:field="*{caminhoImagem}"><br>
+        <input type="submit" th:value="${valor}">
+    </form>
+    <script th:src="@{/js/script.js}"></script>
+</body>
+</html>
