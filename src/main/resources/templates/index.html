@@ -1,13 +1,29 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
+
 <head>
-    <title>Projeto Filmes</title>
-    <meta charset="UTF-8">
-    <link rel="stylesheet" href="/styles/index.css">
+  <title>Projeto Filmes</title>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" href="/styles/index.css">
+  <link rel="stylesheet" href="/styles/main.css">
 </head>
-<body>
-    <h1>Bem-vindo ao Projeto de Cadastro de Filmes</h1>
-    <a th:href="@{/formulario}">Cadastrar novo filme</a><br>
-    <a th:href="@{/listar}">Ver todos os filmes</a>
+
+<body class="preload">
+  <div class="background"></div>
+  <header>
+    <a th:href="@{/}">Home</a>
+    <a th:href="@{/formulario}">Cadastrar Filme</a>
+    <a th:href="@{/listar}">Listar Filmes</a>
+  </header>
+
+  <main>
+    <h1>Acompanhe os filmes que você já assistiu.</h1>
+    <p>Salve os que quer ver. Conte aos amigos o que é bom.</p>
+    <a href="/listar" class="btn-primary">Ver Lista de Filmes</a>
+    <p class="slogan">Seu catálogo pessoal de filmes.</p>
+  </main>
+
 </body>
+<script src="/js/transitions.js"></script>
+
 </html>

@@ -1,14 +1,32 @@
 <!DOCTYPE html>
-<html xmlns="http://www.tymeleaf.org">
+<html xmlns:th="http://www.thymeleaf.org" lang="pt-br">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/styles/index.css">
-    <title>SUCESSO</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sucesso</title>
+    <link rel="stylesheet" href="/styles/main.css">
+    <link rel="stylesheet" href="/styles/sucesso.css" />
 </head>
 <body>
-    <h1>SUCESSO</h1>
-    <a th:href="@{/}">Voltar</a>
-    <a th:href="@{/listar}">Listar</a>
+    <div class="modal-overlay" id="modal">
+        <div class="modal-box">
+            <h1>Cadastro Realizado com Sucesso!</h1>
+            <button id="fecharBtn">Fechar</button>
+        </div>
+    </div>
+
+<script>
+    const modal = document.getElementById('modal');
+    const fecharBtn = document.getElementById('fecharBtn');
+
+    fecharBtn.addEventListener('click', () => {
+        window.location.href = '/listar';
+    });
+
+    // Redirecionar automaticamente após 3 segundos, caso não queira clicar
+    setTimeout(() => {
+        window.location.href = '/listar';
+    }, 3000);
+</script>
 </body>
 </html>

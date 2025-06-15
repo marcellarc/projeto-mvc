@@ -1,0 +1,92 @@
+.background {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: url('/images/background.png') no-repeat center center/cover;
+  filter: brightness(0.5);
+  z-index: -1;
+}
+
+main {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 0 20px;
+  max-width: 700px;
+  margin: 0 auto;
+  z-index: 1;
+  position: relative;
+  color: #fff;
+}
+
+/* Gradiente escuro por cima do background */
+main::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: -1;
+}
+
+/* Animação de Fade In */
+main h1, main p, main .btn-primary, main .slogan {
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeInUp 1s ease-out forwards;
+}
+
+main h1 {
+  font-size: 2.5rem;
+  font-weight: 900;
+  margin-bottom: 1rem;
+  line-height: 1.2;
+  animation-delay: 0.2s;
+}
+
+main p {
+  font-size: 1.2rem;
+  margin-bottom: 2rem;
+  font-weight: 600;
+  animation-delay: 0.4s;
+}
+
+main .btn-primary {
+  background-color: #1ed760;
+  color: #000;
+  font-weight: 700;
+  font-size: 1.1rem;
+  padding: 1rem 2rem;
+  border: none;
+  border-radius: 25px;
+  cursor: pointer;
+  text-decoration: none;
+  transition: background-color 0.3s;
+  animation-delay: 0.6s;
+}
+
+main .btn-primary:hover {
+  background-color: #1d8b44;
+}
+
+/* Slogan pequeno abaixo do botão */
+main .slogan {
+  color: #ccc;
+  margin-top: 10px;
+  font-style: italic;
+  font-size: 14px;
+  animation-delay: 0.8s;
+}
+
+@keyframes fadeInUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

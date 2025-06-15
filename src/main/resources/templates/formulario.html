@@ -1,22 +1,61 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org" lang="pt-br">
+
 <head>
     <meta charset="UTF-8">
     <title th:text="${titulo}">Cadastro</title>
-    <link rel="stylesheet" href="/styles/index.css">
+    <link rel="stylesheet" href="/styles/main.css">
+    <link rel="stylesheet" href="/styles/formulario.css">
 </head>
-<body>
-    <h1 th:text="${titulo}"></h1>
-    <form th:action="@{${link}}" method="POST" th:object="${filme}">
-        Título: <input type="text" th:field="*{titulo}" required><br>
-        Diretor: <input type="text" th:field="*{diretor}" required><br>
-        Ano de Lançamento: <input type="number" th:field="*{anoLancamento}" required><br>
-        Gênero: <input type="text" th:field="*{genero}" required><br>
-        Duração (min): <input type="number" th:field="*{duracao}" required><br>
-        Status: <input type="text" th:field="*{status}" required><br>
-        Caminho da Imagem: <input type="text" th:field="*{caminhoImagem}"><br>
-        <input type="submit" th:value="${valor}">
-    </form>
-    <script th:src="@{/js/script.js}"></script>
+
+<body class="preload">
+
+    <header>
+        <a th:href="@{/}">Home</a>
+        <a th:href="@{/formulario}">Cadastrar Filme</a>
+        <a th:href="@{/listar}">Listar Filmes</a>
+    </header>
+
+    <main>
+        <h1 th:text="${titulo}"></h1>
+
+        <!-- Container aplicado ao bloco do formulário -->
+        <div class="form-container">
+            <form th:action="@{${link}}" method="POST" th:object="${filme}" enctype="multipart/form-data" novalidate>
+
+                <label for="titulo">Título: <span>*</span></label>
+                <input type="text" id="titulo" th:field="*{titulo}" required />
+
+                <label for="diretor">Diretor: <span>*</span></label>
+                <input type="text" id="diretor" th:field="*{diretor}" required />
+
+                <label for="anoLancamento">Ano de Lançamento: <span>*</span></label>
+                <input type="number" id="anoLancamento" th:field="*{anoLancamento}" min="1888" max="2100" required />
+
+                <label for="genero">Gênero: <span>*</span></label>
+                <input type="text" id="genero" th:field="*{genero}" required />
+
+                <label for="duracao">Duração (min): <span>*</span></label>
+                <input type="number" id="duracao" th:field="*{duracao}" min="1" required />
+
+                <label for="status">Status: <span>*</span></label>
+                <select id="status" th:field="*{status}" required>
+                    <option value="" disabled selected>Selecione...</option>
+                    <option value="Assistido" th:selected="${filme.status == 'Assistido'}">Assistido</option>
+                    <option value="Não Assistido" th:selected="${filme.status == 'Não Assistido'}">Não Assistido</option>
+                </select>
+
+                <label for="file">Imagem do filme:</label>
+                <input type="file" id="file" name="file" accept="image/*" />
+
+                <input type="submit" th:value="${valor}" />
+
+            </form>
+        </div>
+
+    </main>
+
+    <script src="/js/transitions.js"></script>
 </body>
+
 </html>

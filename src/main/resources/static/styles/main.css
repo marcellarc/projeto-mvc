@@ -1,0 +1,84 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
+
+* {
+    margin: 0;
+    top: 0;
+    left: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+    font-family: "Inter", sans-serif;
+}
+
+:root {
+    --cor-fundo: #111;
+    --cor-texto: #fff;
+    --cor-destaque: #444;
+    --cor-hover: #666;
+    --fonte-padrao: Arial, sans-serif;
+}
+
+body {
+    background-color: var(--cor-fundo);
+    color: var(--cor-texto);
+    font-family: var(--fonte-padrao);
+    padding: 0;
+    opacity: 1;
+    transition: opacity 0.5s ease;
+}
+
+body.fade-out {
+    opacity: 0;
+}
+
+body.loaded {
+    opacity: 1;
+}
+
+body.preload {
+    opacity: 0;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    color: var(--cor-texto);
+}
+
+a {
+    color: #5bc0de;
+    text-decoration: none;
+}
+
+a,
+a:visited,
+a:focus,
+a:active {
+    text-decoration: none;
+}
+
+/* Header simples com links */
+header {
+    background: rgba(0, 0, 0, 0.4);
+    width: 100%;
+    font-size: 0.9rem;
+    color: black;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 80px;
+    padding: 10px 20px;
+    gap: 25px;
+    z-index: 10;
+}
+
+header a {
+    color: white;
+    font-weight: bold;
+}
+
+header a:hover {
+    color: #ddd;
+}

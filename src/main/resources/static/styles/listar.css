@@ -1,0 +1,187 @@
+body {
+    background: #111;
+    color: white;
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+  }
+  
+  /* Container geral da seção do slider */
+  .section {
+    margin: 20px;
+  }
+  
+  /* Título da seção */
+  h2 {
+    margin-left: 10px;
+    font-weight: 600;
+    font-size: 1.8rem;
+  }
+  
+  /* Linha de filmes (estilo Netflix) */
+  .movie-row {
+    display: flex;
+    overflow-x: scroll;
+    padding: 10px;
+    gap: 10px;
+    scroll-behavior: smooth;
+  
+    /* Esconde a barra de rolagem */
+    scrollbar-width: none;       /* Firefox */
+    -ms-overflow-style: none;    /* IE/Edge */
+  }
+  
+  .movie-row::-webkit-scrollbar {
+    display: none;               /* Chrome/Safari/Opera */
+  }
+  
+  /* Cartões de filmes */
+  .movie-card {
+    min-width: 160px;
+    height: 240px;
+    flex-shrink: 0;
+    border-radius: 8px;
+    overflow: hidden;
+    transition: transform 0.2s;
+    box-shadow: 0 2px 8px rgba(255, 255, 255, 0.2);
+    cursor: pointer;
+  }
+  
+  .movie-card:hover {
+    transform: scale(1.1);
+  }
+  
+  .movie-card img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  
+  /* Botões de navegação fixos */
+  button#btn-esquerda,
+  button#btn-direita {
+    position: fixed;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(0, 0, 0, 0.7);
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    font-size: 24px;
+    cursor: pointer;
+    z-index: 10;
+    border-radius: 5px;
+    user-select: none;
+    transition: background-color 0.3s ease;
+  }
+  
+  button#btn-esquerda:hover,
+  button#btn-direita:hover {
+    background: rgba(0, 0, 0, 0.9);
+  }
+  
+  /* Posicionamento dos botões */
+  button#btn-esquerda {
+    left: 10px;
+  }
+  
+  button#btn-direita {
+    right: 10px;
+  }
+  
+  /* Estilos para a tabela e links da listagem, para contraste e legibilidade */
+  table {
+    width: 90%;
+    margin: 30px auto 50px;
+    border-collapse: collapse;
+    background-color: #222;
+    color: white;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.1);
+  }
+  
+  thead tr {
+    background-color: #333;
+  }
+  
+  th, td {
+    padding: 12px 15px;
+    text-align: left;
+    border-bottom: 1px solid #444;
+  }
+  
+  tr:hover {
+    background-color: #2a2a2a;
+  }
+  
+  .edit-btn,
+  .delete-btn,
+  a[th\:href] {
+    background-color: #444;
+    color: white;
+    padding: 6px 10px;
+    border-radius: 4px;
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+    font-size: 0.9rem;
+    cursor: pointer;
+    display: inline-block;
+  }
+  
+  .edit-btn:hover,
+  .delete-btn:hover,
+  a[th\:href]:hover {
+    background-color: #666;
+  }
+  
+  /* Modal */
+  .modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 20;
+  }
+  
+  .modal-box {
+    background-color: #222;
+    padding: 20px 30px;
+    border-radius: 8px;
+    width: 320px;
+    color: white;
+    text-align: center;
+  }
+  
+  .modal-actions button {
+    margin: 0 10px;
+    padding: 8px 16px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: 600;
+  }
+  
+  #confirmBtn {
+    background-color: #d9534f;
+    color: white;
+  }
+  
+  #confirmBtn:hover {
+    background-color: #c9302c;
+  }
+  
+  #cancelBtn {
+    background-color: #5bc0de;
+    color: white;
+  }
+  
+  #cancelBtn:hover {
+    background-color: #31b0d5;
+  }
+  
