@@ -16,37 +16,53 @@
         <a th:href="@{/listar}">Listar Filmes</a>
     </header>
 
-    <main>
-        <h1 th:text="${titulo}"></h1>
+    <h1 th:text="${titulo}"></h1>
 
-        <!-- Container aplicado ao bloco do formulário -->
+    <main>
+
         <div class="form-container">
             <form th:action="@{${link}}" method="POST" th:object="${filme}" enctype="multipart/form-data" novalidate>
 
-                <label for="titulo">Título: <span>*</span></label>
-                <input type="text" id="titulo" th:field="*{titulo}" required />
+                <div class="form-group">
+                    <label for="titulo">Título: <span>*</span></label>
+                    <input type="text" id="titulo" th:field="*{titulo}" required />
+                </div>
 
-                <label for="diretor">Diretor: <span>*</span></label>
-                <input type="text" id="diretor" th:field="*{diretor}" required />
+                <div class="form-group">
+                    <label for="diretor">Diretor: <span>*</span></label>
+                    <input type="text" id="diretor" th:field="*{diretor}" required />
+                </div>
 
-                <label for="anoLancamento">Ano de Lançamento: <span>*</span></label>
-                <input type="number" id="anoLancamento" th:field="*{anoLancamento}" min="1888" max="2100" required />
+                <div class="form-group">
+                    <label for="anoLancamento">Ano de Lançamento: <span>*</span></label>
+                    <input type="number" id="anoLancamento" th:field="*{anoLancamento}" min="1888" max="2100"
+                        required />
+                </div>
 
-                <label for="genero">Gênero: <span>*</span></label>
-                <input type="text" id="genero" th:field="*{genero}" required />
+                <div class="form-group">
+                    <label for="genero">Gênero: <span>*</span></label>
+                    <input type="text" id="genero" th:field="*{genero}" required />
+                </div>
 
-                <label for="duracao">Duração (min): <span>*</span></label>
-                <input type="number" id="duracao" th:field="*{duracao}" min="1" required />
+                <div class="form-group">
+                    <label for="duracao">Duração (min): <span>*</span></label>
+                    <input type="number" id="duracao" th:field="*{duracao}" min="1" required />
+                </div>
 
-                <label for="status">Status: <span>*</span></label>
-                <select id="status" th:field="*{status}" required>
-                    <option value="" disabled selected>Selecione...</option>
-                    <option value="Assistido" th:selected="${filme.status == 'Assistido'}">Assistido</option>
-                    <option value="Não Assistido" th:selected="${filme.status == 'Não Assistido'}">Não Assistido</option>
-                </select>
+                <div class="form-group">
+                    <label for="status">Status: <span>*</span></label>
+                    <select id="status" th:field="*{status}" required>
+                        <option value="" disabled selected>Selecione...</option>
+                        <option value="Assistido" th:selected="${filme.status == 'Assistido'}">Assistido</option>
+                        <option value="Não Assistido" th:selected="${filme.status == 'Não Assistido'}">Não Assistido
+                        </option>
+                    </select>
+                </div>
 
-                <label for="file">Imagem do filme:</label>
-                <input type="file" id="file" name="file" accept="image/*" />
+                <div class="form-group">
+                    <label for="file">Imagem do filme:</label>
+                    <input type="file" id="file" name="file" accept="image/*" />
+                </div>
 
                 <input type="submit" th:value="${valor}" />
 

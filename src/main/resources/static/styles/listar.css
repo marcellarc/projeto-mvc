@@ -1,187 +1,206 @@
-body {
-    background: #111;
-    color: white;
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
+:root {
+  --bg-table: #222;
+  --bg-header: #333;
+  --bg-hover: #2a2a2a;
+  --text-color: white;
+  --btn-bg: #444;
+  --btn-bg-hover: #666;
+  --modal-bg: #222;
+  --modal-overlay-bg: rgba(0, 0, 0, 0.7);
+  --info: #5bc0de;
+  --info-hover: #31b0d5;
+  --cor-verde: #1ed760;
+  --cor-verde-hover: #17a34a;
+  --cor-vermelho: #d9534f;
+  --cor-vermelho-hover: #c9302c;
+}
+
+/* ====== Título ====== */
+h1 {
+  font-size: 2rem;
+  margin: 30px;
+  text-align: left;
+}
+
+/* ====== Container da Tabela ====== */
+.table-container {
+  width: 95%;
+  margin: 0 auto 50px;
+  overflow-x: auto;
+}
+
+/* ====== Tabela ====== */
+table {
+  border-collapse: collapse;
+  width: 100%;
+  font-size: 0.95rem;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+thead tr {
+  background-color: var(--bg-header);
+}
+
+th,
+td {
+  padding: 12px 15px;
+  text-align: center;
+  border-bottom: 1px solid #444;
+}
+
+tr:hover {
+  background-color: var(--bg-hover);
+}
+
+/* ====== Botões ====== */
+.edit-btn,
+.delete-btn {
+  background-color: var(--btn-bg);
+  color: var(--text-color);
+  padding: 8px 14px;
+  border-radius: 4px;
+  text-decoration: none;
+  transition: background-color 0.3s ease;
+  font-size: 0.9rem;
+  cursor: pointer;
+  border: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.edit-btn:hover {
+  background-color: var(--cor-verde-hover);
+}
+
+.delete-btn:hover {
+  background-color: var(--cor-vermelho-hover);
+}
+
+/* Formulário inline para o botão de deletar */
+.delete-form {
+  display: inline-block;
+  margin: 0;
+  padding: 0;
+}
+
+/* ====== Célula de ações ====== */
+.action-buttons {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+}
+
+/* ====== Mensagem de Nenhum dado ====== */
+.no-data {
+  text-align: center;
+  padding: 20px;
+  font-style: italic;
+  color: #aaa;
+}
+
+/* ====== Modal Overlay ====== */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: var(--modal-overlay-bg);
+  display: none;
+  /* Corrigido: começa escondido */
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  animation: fadeInOverlay 0.3s ease-in-out;
+}
+
+@keyframes fadeInOverlay {
+  from {
+    opacity: 0;
   }
-  
-  /* Container geral da seção do slider */
-  .section {
-    margin: 20px;
+
+  to {
+    opacity: 1;
   }
-  
-  /* Título da seção */
-  h2 {
-    margin-left: 10px;
-    font-weight: 600;
-    font-size: 1.8rem;
+}
+
+/* ====== Modal Box ====== */
+.modal-box {
+  background-color: var(--modal-bg);
+  padding: 30px 40px;
+  border-radius: 12px;
+  width: 400px;
+  max-width: 90%;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5);
+  text-align: center;
+  color: var(--text-color);
+  animation: fadeIn 0.3s ease-in-out;
+}
+
+.modal-box p {
+  font-style: italic;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
   }
-  
-  /* Linha de filmes (estilo Netflix) */
-  .movie-row {
-    display: flex;
-    overflow-x: scroll;
-    padding: 10px;
-    gap: 10px;
-    scroll-behavior: smooth;
-  
-    /* Esconde a barra de rolagem */
-    scrollbar-width: none;       /* Firefox */
-    -ms-overflow-style: none;    /* IE/Edge */
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
   }
-  
-  .movie-row::-webkit-scrollbar {
-    display: none;               /* Chrome/Safari/Opera */
+}
+
+/* ====== Ações do Modal ====== */
+.modal-actions {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  margin-top: 20px;
+}
+
+.modal-actions button {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: background-color 0.3s;
+}
+
+#confirmBtn {
+  background-color: var(--cor-verde);
+  color: #000;
+}
+
+#confirmBtn:hover {
+  background-color: var(--cor-verde-hover);
+}
+
+#cancelBtn {
+  background-color: var(--cor-vermelho);
+  color: #000;
+}
+
+#cancelBtn:hover {
+  background-color: var(--cor-vermelho-hover);
+}
+
+/* Responsividade simples para mobile */
+@media (max-width: 600px) {
+
+  th,
+  td {
+    font-size: 0.85rem;
+    padding: 8px;
   }
-  
-  /* Cartões de filmes */
-  .movie-card {
-    min-width: 160px;
-    height: 240px;
-    flex-shrink: 0;
-    border-radius: 8px;
-    overflow: hidden;
-    transition: transform 0.2s;
-    box-shadow: 0 2px 8px rgba(255, 255, 255, 0.2);
-    cursor: pointer;
-  }
-  
-  .movie-card:hover {
-    transform: scale(1.1);
-  }
-  
-  .movie-card img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-  }
-  
-  /* Botões de navegação fixos */
-  button#btn-esquerda,
-  button#btn-direita {
-    position: fixed;
-    top: 50%;
-    transform: translateY(-50%);
-    background: rgba(0, 0, 0, 0.7);
-    color: white;
-    border: none;
-    padding: 10px 15px;
-    font-size: 24px;
-    cursor: pointer;
-    z-index: 10;
-    border-radius: 5px;
-    user-select: none;
-    transition: background-color 0.3s ease;
-  }
-  
-  button#btn-esquerda:hover,
-  button#btn-direita:hover {
-    background: rgba(0, 0, 0, 0.9);
-  }
-  
-  /* Posicionamento dos botões */
-  button#btn-esquerda {
-    left: 10px;
-  }
-  
-  button#btn-direita {
-    right: 10px;
-  }
-  
-  /* Estilos para a tabela e links da listagem, para contraste e legibilidade */
-  table {
-    width: 90%;
-    margin: 30px auto 50px;
-    border-collapse: collapse;
-    background-color: #222;
-    color: white;
-    border-radius: 8px;
-    overflow: hidden;
-    box-shadow: 0 0 10px rgba(255, 255, 255, 0.1);
-  }
-  
-  thead tr {
-    background-color: #333;
-  }
-  
-  th, td {
-    padding: 12px 15px;
-    text-align: left;
-    border-bottom: 1px solid #444;
-  }
-  
-  tr:hover {
-    background-color: #2a2a2a;
-  }
-  
-  .edit-btn,
-  .delete-btn,
-  a[th\:href] {
-    background-color: #444;
-    color: white;
-    padding: 6px 10px;
-    border-radius: 4px;
-    text-decoration: none;
-    transition: background-color 0.3s ease;
-    font-size: 0.9rem;
-    cursor: pointer;
-    display: inline-block;
-  }
-  
-  .edit-btn:hover,
-  .delete-btn:hover,
-  a[th\:href]:hover {
-    background-color: #666;
-  }
-  
-  /* Modal */
-  .modal-overlay {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.7);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    z-index: 20;
-  }
-  
+
   .modal-box {
-    background-color: #222;
-    padding: 20px 30px;
-    border-radius: 8px;
-    width: 320px;
-    color: white;
-    text-align: center;
+    padding: 20px;
   }
-  
-  .modal-actions button {
-    margin: 0 10px;
-    padding: 8px 16px;
-    border: none;
-    border-radius: 6px;
-    cursor: pointer;
-    font-weight: 600;
-  }
-  
-  #confirmBtn {
-    background-color: #d9534f;
-    color: white;
-  }
-  
-  #confirmBtn:hover {
-    background-color: #c9302c;
-  }
-  
-  #cancelBtn {
-    background-color: #5bc0de;
-    color: white;
-  }
-  
-  #cancelBtn:hover {
-    background-color: #31b0d5;
-  }
-  
+}

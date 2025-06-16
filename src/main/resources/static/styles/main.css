@@ -14,13 +14,15 @@
     --cor-texto: #fff;
     --cor-destaque: #444;
     --cor-hover: #666;
-    --fonte-padrao: Arial, sans-serif;
+    --cor-verde: #1ed760;
+    --cor-verde-hover: #1d8b44;
+    --cor-vermelho: #c90d0d;
+    --cor-vermelho-hover: #920f0f;
 }
 
 body {
     background-color: var(--cor-fundo);
     color: var(--cor-texto);
-    font-family: var(--fonte-padrao);
     padding: 0;
     opacity: 1;
     transition: opacity 0.5s ease;
