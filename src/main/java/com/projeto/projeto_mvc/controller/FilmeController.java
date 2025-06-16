@@ -33,7 +33,7 @@ public class FilmeController {
     @GetMapping("/formulario")
     public String formulario(Model model) {
         model.addAttribute("filme", new Filme());
-        model.addAttribute("titulo", "CADASTRO DE FILMES");
+        model.addAttribute("titulo", "Cadastrar Filme");
         model.addAttribute("link", "/cadastro");
         model.addAttribute("valor", "Cadastrar");
 
@@ -60,7 +60,7 @@ public class FilmeController {
         FilmeService fs = ctx.getBean(FilmeService.class);
         Filme velho = fs.puxarFilme(id);
         model.addAttribute("filme", velho);
-        model.addAttribute("titulo", "EDITAR FILMES");
+        model.addAttribute("titulo", "Editar Filme");
         model.addAttribute("link", "/editar/" + id);
         model.addAttribute("valor", "Editar");
         return "formulario";

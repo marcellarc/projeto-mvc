@@ -13,25 +13,23 @@ public class Filme {
     private String genero;
     private int duracao;
     private String status;
-    private String caminhoImagem;
 
     //INICIALIZAR O FORM
     public Filme() {
     }
 
     // CADASTRO (sem id)
-    public Filme(String titulo, String diretor, int anoLancamento, String genero, int duracao, String status, String caminhoImagem) {
+    public Filme(String titulo, String diretor, int anoLancamento, String genero, int duracao, String status) {
         this.titulo = titulo;
         this.diretor = diretor;
         this.anoLancamento = anoLancamento;
         this.genero = genero;
         this.duracao = duracao;
         this.status = status;
-        this.caminhoImagem = caminhoImagem;
     }
 
     // MOSTRAR (com id)
-    public Filme(int id, String titulo, String diretor, int anoLancamento, String genero, int duracao, String status, String caminhoImagem) {
+    public Filme(int id, String titulo, String diretor, int anoLancamento, String genero, int duracao, String status) {
         this.id = id;
         this.titulo = titulo;
         this.diretor = diretor;
@@ -39,7 +37,6 @@ public class Filme {
         this.genero = genero;
         this.duracao = duracao;
         this.status = status;
-        this.caminhoImagem = caminhoImagem;
     }
 
     public int getId() {
@@ -98,14 +95,6 @@ public class Filme {
         this.status = status;
     }
 
-    public String getCaminhoImagem() {
-        return caminhoImagem;
-    }
-
-    public void setCaminhoImagem(String caminhoImagem) {
-        this.caminhoImagem = caminhoImagem;
-    }
-
     // CONVERSÃO DE UM MAPA
     public static Filme converter(Map<String, Object> registro) {
         int id = (Integer) registro.get("id");
@@ -115,9 +104,8 @@ public class Filme {
         String genero = (String) registro.get("genero");
         int duracao = (Integer) registro.get("duracao");
         String status = (String) registro.get("status");
-        String imagem = (String) registro.get("caminhoImagem");
 
-        return new Filme(id, titulo, diretor, ano, genero, duracao, status, imagem);
+        return new Filme(id, titulo, diretor, ano, genero, duracao, status);
     }
 
     // CONVERSÃO DE VÁRIOS REGISTROS

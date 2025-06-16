@@ -1,7 +1,3 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package com.projeto.projeto_mvc.model;
 
 import java.util.List;
@@ -29,21 +25,20 @@ public class FilmeDAO {
     }
 
     public void inserirFilme(Filme filme) {
-        String sql = "INSERT INTO filme(titulo, diretor, anoLancamento, genero, duracao, status, caminhoImagem) VALUES (?, ?, ?, ?, ?, ?, ?)";
-        Object[] parametros = new Object[7];
+        String sql = "INSERT INTO filme(titulo, diretor, anoLancamento, genero, duracao, status) VALUES (?, ?, ?, ?, ?, ?)";
+        Object[] parametros = new Object[6];
         parametros[0] = filme.getTitulo();
         parametros[1] = filme.getDiretor();
         parametros[2] = filme.getAnoLancamento();
         parametros[3] = filme.getGenero();
         parametros[4] = filme.getDuracao();
         parametros[5] = filme.getStatus();
-        parametros[6] = filme.getCaminhoImagem();
 
         jdbc.update(sql, parametros);
     }
 
     public List<Map<String, Object>> puxarTodosFilmes() {
-        String sql = "SELECT * FROM filme";
+        String sql = "SELECT * FROM filme;";
         return jdbc.queryForList(sql);
     }
 
@@ -53,16 +48,15 @@ public class FilmeDAO {
     }
 
     public void atualizarFilme(int id, Filme novo) {
-        String sql = "UPDATE filme SET titulo = ?, diretor = ?, anoLancamento = ?, genero = ?, duracao = ?, status = ?, caminhoImagem = ? WHERE id = ?";
-        Object[] parametros = new Object[8];
+        String sql = "UPDATE filme SET titulo = ?, diretor = ?, anoLancamento = ?, genero = ?, duracao = ?, status = ? WHERE id = ?";
+        Object[] parametros = new Object[7];
         parametros[0] = novo.getTitulo();
         parametros[1] = novo.getDiretor();
         parametros[2] = novo.getAnoLancamento();
         parametros[3] = novo.getGenero();
         parametros[4] = novo.getDuracao();
         parametros[5] = novo.getStatus();
-        parametros[6] = novo.getCaminhoImagem();
-        parametros[7] = id;
+        parametros[6] = id;
 
         jdbc.update(sql, parametros);
     }
