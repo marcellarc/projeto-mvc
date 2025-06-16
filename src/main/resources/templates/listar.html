@@ -28,6 +28,7 @@
                         <th>Título</th>
                         <th>Gênero</th>
                         <th>Duração</th>
+                        <th>Status</th>
                         <th>Ações</th>
                     </tr>
                 </thead>
@@ -36,12 +37,12 @@
                         <td th:text="${fil.titulo}"></td>
                         <td th:text="${fil.genero}"></td>
                         <td><span th:text="${fil.duracao}"></span> min</td>
+                        <td th:text="${fil.status}"></td>
                         <td class="action-buttons">
                             <a th:href="@{'/editar/' + ${fil.id}}" class="edit-btn" title="Editar">
                                 <i class="fas fa-edit"></i>
                             </a>
-                            <form th:action="@{'/deletar/' + ${fil.id}}" method="post" class="delete-form"
-                                data-id="[[${fil.id}]]">
+                            <form th:action="@{'/deletar/' + ${fil.id}}" method="post" class="delete-form">
                                 <button type="submit" class="delete-btn" title="Excluir">
                                     <i class="fas fa-trash-alt"></i>
                                 </button>
@@ -51,7 +52,7 @@
                 </tbody>
                 <tbody th:if="${#lists.isEmpty(filmes)}">
                     <tr>
-                        <td colspan="4" class="no-data">Nenhum filme cadastrado.</td>
+                        <td colspan="5" class="no-data">Nenhum filme cadastrado.</td>
                     </tr>
                 </tbody>
             </table>

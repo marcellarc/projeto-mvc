@@ -6,6 +6,7 @@
     <title th:text="${titulo}">Cadastro</title>
     <link rel="stylesheet" href="/styles/main.css">
     <link rel="stylesheet" href="/styles/formulario.css">
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css">
 </head>
 
 <body class="preload">
@@ -21,32 +22,43 @@
     <main>
 
         <div class="form-container">
-            <form th:action="@{${link}}" method="POST" th:object="${filme}" enctype="multipart/form-data" novalidate>
+            <form th:action="@{${link}}" method="POST" th:object="${filme}" enctype="multipart/form-data">
 
                 <div class="form-group">
                     <label for="titulo">Título: <span>*</span></label>
-                    <input type="text" id="titulo" th:field="*{titulo}" required />
+                    <input type="text" id="titulo" th:field="*{titulo}" placeholder="Ex: Sexta-Feira 13" required />
                 </div>
 
                 <div class="form-group">
                     <label for="diretor">Diretor: <span>*</span></label>
-                    <input type="text" id="diretor" th:field="*{diretor}" required />
+                    <input type="text" id="diretor" th:field="*{diretor}" placeholder="Ex: Christopher Nolan"
+                        required />
                 </div>
 
                 <div class="form-group">
                     <label for="anoLancamento">Ano de Lançamento: <span>*</span></label>
-                    <input type="number" id="anoLancamento" th:field="*{anoLancamento}" min="1888" max="2100"
+                    <input type="number" id="anoLancamento" th:field="*{anoLancamento}" placeholder="Ex: 2004"
                         required />
                 </div>
 
                 <div class="form-group">
                     <label for="genero">Gênero: <span>*</span></label>
-                    <input type="text" id="genero" th:field="*{genero}" required />
+                    <select id="genero" th:field="*{genero}" required>
+                        <option value="" disabled selected>Selecione...</option>
+                        <option value="Ação">Ação</option>
+                        <option value="Comédia">Comédia</option>
+                        <option value="Drama">Drama</option>
+                        <option value="Ficção Científica">Ficção Científica</option>
+                        <option value="Terror">Terror</option>
+                        <option value="Animação">Animação</option>
+                        <option value="Romance">Romance</option>
+                        <option value="Documentário">Documentário</option>
+                    </select>
                 </div>
 
                 <div class="form-group">
                     <label for="duracao">Duração (min): <span>*</span></label>
-                    <input type="number" id="duracao" th:field="*{duracao}" min="1" required />
+                    <input type="number" id="duracao" th:field="*{duracao}" min="1" placeholder="Ex: 120" required />
                 </div>
 
                 <div class="form-group">
@@ -57,20 +69,18 @@
                         <option value="Não Assistido" th:selected="${filme.status == 'Não Assistido'}">Não Assistido
                         </option>
                     </select>
-                </div>
 
-                <div class="form-group">
-                    <label for="file">Imagem do filme:</label>
-                    <input type="file" id="file" name="file" accept="image/*" />
+                    <input type="submit" th:value="${valor}" />
                 </div>
-
-                <input type="submit" th:value="${valor}" />
 
             </form>
         </div>
 
     </main>
 
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.min.js"></script>
+    <script src="/js/formulario.js"></script>
     <script src="/js/transitions.js"></script>
 </body>
 

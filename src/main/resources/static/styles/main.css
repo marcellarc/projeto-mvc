@@ -79,6 +79,7 @@ header {
 header a {
     color: white;
     font-weight: bold;
+    font-size: 18px;
 }
 
 header a:hover {

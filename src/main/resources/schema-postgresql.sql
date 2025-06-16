@@ -5,6 +5,5 @@ CREATE TABLE IF NOT EXISTS filme (
     anoLancamento INT,
     genero VARCHAR(100),
     duracao INT,
-    status VARCHAR(50),
-    caminhoImagem VARCHAR(255)
+    status VARCHAR(50)
 );
