@@ -44,7 +44,7 @@ public class FilmeController {
     public String cadastro(Model model, @ModelAttribute Filme filme) {
         FilmeService fs = ctx.getBean(FilmeService.class);
         fs.inserirFilme(filme);
-        return "redirect:/listar";
+        return "redirect:/sucesso?proximo=/listar";
     }
 
     @GetMapping("/listar")

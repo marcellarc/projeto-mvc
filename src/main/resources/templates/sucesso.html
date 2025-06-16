@@ -1,32 +1,38 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org" lang="pt-br">
+
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Sucesso</title>
     <link rel="stylesheet" href="/styles/main.css">
-    <link rel="stylesheet" href="/styles/sucesso.css" />
+    <link rel="stylesheet" href="/styles/sucesso.css?v=2" />
 </head>
+
 <body>
     <div class="modal-overlay" id="modal">
         <div class="modal-box">
-            <h1>Cadastro Realizado com Sucesso!</h1>
-            <button id="fecharBtn">Fechar</button>
+            <h2>Cadastro Realizado com Sucesso!</h2>
+            <p>Você será redirecionado em instantes...</p>
+            <div class="modal-actions">
+                <button id="fecharBtn">Fechar</button>
+            </div>
         </div>
     </div>
 
-<script>
-    const modal = document.getElementById('modal');
-    const fecharBtn = document.getElementById('fecharBtn');
+    <script>
+        const modal = document.getElementById('modal');
+        const fecharBtn = document.getElementById('fecharBtn');
 
-    fecharBtn.addEventListener('click', () => {
-        window.location.href = '/listar';
-    });
+        fecharBtn.addEventListener('click', () => {
+            window.location.href = '/listar';
+        });
 
-    // Redirecionar automaticamente após 3 segundos, caso não queira clicar
-    setTimeout(() => {
-        window.location.href = '/listar';
-    }, 3000);
-</script>
+        // Redirecionamento automático após 3 segundos
+        setTimeout(() => {
+            window.location.href = '/listar';
+        }, 3000);
+    </script>
 </body>
+
 </html>

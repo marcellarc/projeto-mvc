@@ -1,40 +1,79 @@
 .modal-overlay {
     position: fixed;
-    top: 0; left: 0;
-    width: 100vw;
-    height: 100vh;
-    background-color: rgba(0,0,0,0.7);
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
     display: flex;
     justify-content: center;
     align-items: center;
     z-index: 1000;
+    animation: fadeInOverlay 0.3s ease-in-out;
+}
+
+@keyframes fadeInOverlay {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
 }
 
 .modal-box {
-    background: #222;
+    background-color: #222;
     padding: 30px 40px;
-    border-radius: 8px;
-    color: white;
-    font-family: Arial, sans-serif;
+    border-radius: 12px;
+    width: 400px;
+    max-width: 90%;
     text-align: center;
-    box-shadow: 0 0 15px rgba(255,255,255,0.3);
+    color: var(--text-color);
+    animation: fadeIn 0.3s ease-in-out;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
 .modal-box h2 {
+    margin-bottom: 15px;
+    font-size: 1.5rem;
+    color: var(--cor-texto);
+}
+
+.modal-box p {
     margin-bottom: 20px;
+    font-style: italic;
+}
+
+.modal-actions {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-top: 20px;
 }
 
 #fecharBtn {
-    background-color: #5bc0de;
+    padding: 10px 20px;
     border: none;
-    color: white;
-    padding: 10px 25px;
-    font-size: 1rem;
-    border-radius: 5px;
+    border-radius: 6px;
     cursor: pointer;
-    transition: background-color 0.3s ease;
+    font-weight: bold;
+    transition: background-color 0.3s;
+    background-color: var(--cor-verde);
+    color: #000;
 }
 
 #fecharBtn:hover {
-    background-color: #31b0d5;
+    background-color: var(--cor-verde-hover);
 }
